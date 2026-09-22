@@ -1,0 +1,268 @@
+<mxfile host="app.diagrams.net">
+  <diagram id="i0lk3gl1ET--GPx1zHx6" name="AI-SOC 数据流转图">
+    <mxGraphModel dx="1013" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-1" parent="1" style="text;html=1;align=left;fontSize=16;fontColor=#0F172A;" value="&lt;b&gt;AI-SOC 数据流转图：SIEM 取数 → 清洗 → 入库&lt;/b&gt;" vertex="1">
+          <mxGeometry height="30" width="600" x="82" y="230" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8FAFC;strokeColor=#94A3B8;dashed=1;dashPattern=8 4;" value="" vertex="1">
+          <mxGeometry height="320" width="280" x="82" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-3" parent="1" style="text;html=1;align=center;fontSize=13;fontColor=#334155;" value="&lt;b&gt;上游 SIEM&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="280" x="82" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;fontSize=12;" value="&lt;b&gt;SIEM Kafka&lt;/b&gt;&lt;br&gt;告警推送（已首轮检测）" vertex="1">
+          <mxGeometry height="55" width="220" x="112" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;fontSize=12;" value="&lt;b&gt;审计日志采集&lt;/b&gt;&lt;br&gt;账号 / 系统行为" vertex="1">
+          <mxGeometry height="55" width="220" x="112" y="405" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E2E8F0;strokeColor=#64748B;fontSize=12;" value="&lt;b&gt;SIEM DB 视图&lt;/b&gt;&lt;br&gt;车辆 / 零部件 / 组件增量" vertex="1">
+          <mxGeometry height="55" width="220" x="112" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#EFF6FF;strokeColor=#BFDBFE;" value="" vertex="1">
+          <mxGeometry height="320" width="260" x="402" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-8" parent="1" style="text;html=1;align=center;fontSize=13;fontColor=#1D4ED8;" value="&lt;b&gt;L0 缓冲 Kafka（7d）&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="260" x="402" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;fontSize=12;" value="&lt;b&gt;soc.raw.alerts&lt;/b&gt;&lt;br&gt;原始告警" vertex="1">
+          <mxGeometry height="50" width="200" x="432" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;fontSize=12;" value="&lt;b&gt;soc.raw.audit&lt;/b&gt;&lt;br&gt;原始审计" vertex="1">
+          <mxGeometry height="50" width="200" x="432" y="395" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;fontSize=12;" value="&lt;b&gt;soc.dlq.logs&lt;/b&gt;&lt;br&gt;坏日志" vertex="1">
+          <mxGeometry height="50" width="200" x="432" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-12" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DBEAFE;strokeColor=#1D4ED8;fontSize=12;" value="&lt;b&gt;soc.raw.asset.vehicle&lt;/b&gt;&lt;br&gt;资产增量" vertex="1">
+          <mxGeometry height="50" width="200" x="432" y="525" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-13" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F0FDFA;strokeColor=#99F6E4;" value="" vertex="1">
+          <mxGeometry height="320" width="260" x="702" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-14" parent="1" style="text;html=1;align=center;fontSize=13;fontColor=#0F766E;" value="&lt;b&gt;接入与清洗&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="260" x="702" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-15" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCFBF1;strokeColor=#0F766E;strokeWidth=2;fontSize=12;" value="&lt;b&gt;cleaner ×N&lt;/b&gt;&lt;br&gt;解析·归一·脱敏·资产固化&lt;br&gt;不做降噪/聚合/研判" vertex="1">
+          <mxGeometry height="80" width="200" x="732" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#CCFBF1;strokeColor=#0F766E;fontSize=12;" value="&lt;b&gt;asset-sync ×1&lt;/b&gt;&lt;br&gt;资产增量同步" vertex="1">
+          <mxGeometry height="60" width="200" x="732" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-77" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="EM2isxW-fr0hiTF9h-Ro-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0369A1;fontSize=11;" value="&lt;b&gt;Redis 富化缓存&lt;/b&gt;&lt;br&gt;IOC / 资产链路 TTL" vertex="1">
+          <mxGeometry height="45" width="200" x="732" y="540" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF7ED;strokeColor=#FED7AA;opacity=60;" value="" vertex="1">
+          <mxGeometry height="470" width="638" x="1002" y="272.5" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-19" parent="1" style="text;html=1;align=center;fontSize=13;fontColor=#C2410C;" value="&lt;b&gt;入库与研判落库&lt;/b&gt;" vertex="1">
+          <mxGeometry height="24" width="320" x="1002" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-70" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="365" />
+              <mxPoint x="1620" y="777.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#C2410C;fontSize=12;" value="&lt;b&gt;ClickHouse&lt;/b&gt;&lt;br&gt;soc_alerts_detail（告警明细）&lt;br&gt;主键 source_alert_id · 90d" vertex="1">
+          <mxGeometry height="70" width="260" x="1032" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-71" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-26">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1620" y="445" />
+              <mxPoint x="1620" y="777.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-72" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-71" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="ILM90d" vertex="1">
+          <mxGeometry relative="1" x="0.5552" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-21" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFEDD5;strokeColor=#C2410C;fontSize=12;" value="&lt;b&gt;ClickHouse&lt;/b&gt;&lt;br&gt;soc_audit_detail（审计明细）&lt;br&gt;不进 ES · 90d" vertex="1">
+          <mxGeometry height="60" width="260" x="1032" y="415" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-53" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="522.5" />
+              <mxPoint x="1320" y="681" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-54" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-53" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];labelBackgroundColor=light-dark(#FFFFFF,transparent);" value="真实/疑似&lt;div&gt;创建工单&lt;/div&gt;" vertex="1">
+          <mxGeometry relative="1" x="-0.1083" y="-1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-22" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0369A1;fontSize=12;" value="&lt;b&gt;l1-agent ×N&lt;/b&gt;&lt;br&gt;去重→聚合→IOC→初判" vertex="1">
+          <mxGeometry height="55" width="260" x="1032" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-23" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0369A1;fontSize=12;" value="&lt;b&gt;ES-Hot&lt;/b&gt;&lt;br&gt;soc-alerts-hot-* 聚合告警&lt;br&gt;event.id + related_source_alert_ids · 30d" vertex="1">
+          <mxGeometry height="70" width="260" x="1032" y="572" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-24" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#166534;fontSize=12;" value="&lt;b&gt;PostgreSQL&lt;/b&gt;&lt;br&gt;soc_ticket / relation · 工单" vertex="1">
+          <mxGeometry height="40" width="260" x="1032" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DCFCE7;strokeColor=#166534;fontSize=12;" value="&lt;b&gt;资产入库&lt;/b&gt;&lt;br&gt;PG 模板 + CH part_instance / component_deploy" vertex="1">
+          <mxGeometry height="60" width="260" x="702" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F4;strokeColor=#57534E;fontSize=12;" value="&lt;b&gt;OSS Parquet（L2 · 1y）&lt;/b&gt;&lt;br&gt;CH 90d detach / ES ILM 30d 导出 · 禁止在线直查" vertex="1">
+          <mxGeometry height="55" width="600" x="402" y="750" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=12;" value="&lt;b&gt;L4 ES-warm（TTL 7d）&lt;/b&gt;&lt;br&gt;30d～1y 调查加载" vertex="1">
+          <mxGeometry height="55" width="280" x="402" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F1F5F9;strokeColor=#475569;fontSize=12;" value="&lt;b&gt;&amp;gt;1y 回源 SIEM API/DB&lt;/b&gt;&lt;br&gt;本地不持久化" vertex="1">
+          <mxGeometry height="55" width="280" x="722" y="830" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-29" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-4" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#475569;strokeWidth=1.5;endArrow=block;endFill=1;" target="EM2isxW-fr0hiTF9h-Ro-9">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="402" y="357.5" />
+              <mxPoint x="402" y="357.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-31" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-6" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;dashed=1;" target="EM2isxW-fr0hiTF9h-Ro-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-32" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-9" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="EM2isxW-fr0hiTF9h-Ro-15" value="主路径">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-33" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-10" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=2;endArrow=block;endFill=1;" target="EM2isxW-fr0hiTF9h-Ro-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-34" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-12" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=1.5;endArrow=block;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-35" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="EM2isxW-fr0hiTF9h-Ro-20" value="明细先落库">
+          <mxGeometry relative="1" x="0.3846" y="-10" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="982" y="380" />
+              <mxPoint x="982" y="350" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-36" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;" target="EM2isxW-fr0hiTF9h-Ro-21" value="仅审计">
+          <mxGeometry relative="1" x="0.5152" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-37" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#0F766E;strokeWidth=2;endArrow=block;endFill=1;fontSize=11;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-22" value="仅告警">
+          <mxGeometry relative="1" x="0.6701" as="geometry">
+            <mxPoint x="1" as="offset" />
+            <Array as="points">
+              <mxPoint x="972" y="380" />
+              <mxPoint x="972" y="522.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-38" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;dashed=1;fontSize=11;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-17" value="富化查询">
+          <mxGeometry relative="1" x="-0.4336" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="832" y="440" />
+              <mxPoint x="952" y="440" />
+              <mxPoint x="952" y="562.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-39" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-22" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#475569;strokeWidth=1.5;endArrow=block;endFill=1;" target="EM2isxW-fr0hiTF9h-Ro-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-41" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-16" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#166534;strokeWidth=1.5;endArrow=block;endFill=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="832" y="530" />
+              <mxPoint x="690" y="530" />
+              <mxPoint x="690" y="670" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-78" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-41" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="全量/增量资产入库" vertex="1">
+          <mxGeometry relative="1" x="0.4232" y="-2" as="geometry">
+            <mxPoint y="16" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-43" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-23" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#475569;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=11;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-26" value="ILM 30d">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="982" y="600" />
+              <mxPoint x="982" y="730" />
+              <mxPoint x="702" y="730" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-44" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-26" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#475569;strokeWidth=1.5;endArrow=block;endFill=1;fontSize=11;" target="EM2isxW-fr0hiTF9h-Ro-27" value="30d～1y">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-45" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-26" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#64748B;strokeWidth=1.5;endArrow=block;endFill=1;dashed=1;fontSize=11;" target="EM2isxW-fr0hiTF9h-Ro-28" value="Fallback">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-46" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-15" style="edgeStyle=orthogonalEdgeStyle;strokeColor=#64748B;strokeWidth=1.2;endArrow=block;endFill=1;dashed=1;fontSize=10;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-11" value="失败">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-49" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-5" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-60" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-55" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-64" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-60" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="升级" vertex="1">
+          <mxGeometry relative="1" x="0.1008" y="-1" as="geometry">
+            <mxPoint x="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-66" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1410" y="682" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-67" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-66" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="关闭工单" vertex="1">
+          <mxGeometry relative="1" x="-0.5093" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-55" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0369A1;fontSize=12;" value="&lt;b&gt;l2人工/AI辅助研判&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="100" x="1360" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-68" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="EM2isxW-fr0hiTF9h-Ro-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1553" y="682" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-69" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-68" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="关闭工单" vertex="1">
+          <mxGeometry relative="1" x="-0.6726" y="-2" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-56" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E0F2FE;strokeColor=#0369A1;fontSize=12;" value="&lt;b&gt;l3人工/AI辅助研判&lt;/b&gt;" vertex="1">
+          <mxGeometry height="55" width="100" x="1503" y="495" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-59" edge="1" parent="1" source="EM2isxW-fr0hiTF9h-Ro-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" target="EM2isxW-fr0hiTF9h-Ro-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EM2isxW-fr0hiTF9h-Ro-62" connectable="0" parent="EM2isxW-fr0hiTF9h-Ro-59" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="升级" vertex="1">
+          <mxGeometry relative="1" x="-0.0098" y="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
